@@ -1,0 +1,9 @@
+</fieldset>
+
+<fieldset class="tabular"><legend><%= l(:field_notify_user) %></legend>
+  <% @issue.project.users.sort.each do |user| -%>
+    <% if !@issue.watcher_user_ids.include? user.id %>
+      <label class="floating"><%= check_box_tag 'issue[notify_user][]', user.id %> <%=h user %></label>
+    <% end %>
+  <% end -%>
+</fieldset>
